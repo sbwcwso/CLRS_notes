@@ -1,5 +1,5 @@
 """16.1-4 区间图着色问题"""
-from ch16.activity_selector import greedy_activity_selector
+from ch16.activity_selector import greedy_activity_selector, Activity
 
 
 def activities_arrange(activities):
@@ -14,3 +14,14 @@ def activities_arrange(activities):
         remain_activities.append(activity)
     current_activities = remain_activities
   return rooms
+
+
+if __name__ == "__main__":
+  s = [1, 3, 0, 5, 3, 5, 6, 8, 8, 2, 12]
+  f = [4, 5, 6, 7, 9, 9, 10, 11, 12, 14, 16]
+  activities = []
+  for s, f in zip(s, f):
+    activities.append(Activity(s, f))
+  print("所有的活动为： {}".format(activities))
+  print("各个教室中的活动为：\n{}".format("\n".join(repr(item) for item in activities_arrange(activities))))
+  

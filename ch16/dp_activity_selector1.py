@@ -38,3 +38,20 @@ def calc_s(activities, i, j):
     if activities[k].s >= activities[i].f and activities[k].f <= activities[j].s:
       res.append(k)
   return res
+
+
+if __name__ == "__main__":
+  import random
+
+  s_l = [1, 3, 0, 5, 3, 5, 6, 8, 8, 2, 12]
+  f_l = [4, 5, 6, 7, 9, 9, 10, 11, 12, 14, 16]
+  v_l = [random.randint(1, 100) for i in range(len(f_l))]
+  activities = []
+  for s, f, v in zip(s_l, f_l, v_l):
+    activities.append(Activity(s, f, v))
+  print("活动为：")
+  print("\n".join(repr(item) for item in activities))
+  print("*"*60)
+  print("最优活动为： ")
+  print("\n".join( repr(item) for item in dp_activity_selector(activities)))
+  

@@ -58,3 +58,16 @@ def huffman(C):
     z.freq = z.left.freq + z.right.freq
     heapq.heappush(Q, z)
   return heapq.heappop(Q)
+
+
+if __name__ == "__main__":
+  C = []
+  for i, j in zip([45, 13, 12, 16, 9, 5], ['a', 'b', 'c', 'd', 'e', 'f']):
+    C.append(HuffmanNode(coding=j, freq=i))
+
+  res = huffman(C)
+  print("得到的二叉树为： \n")
+  print(res)
+  res.get_encoding()
+  print("各个字符对应的编码为：")
+  print("\n".join(repr(item) for item in C))

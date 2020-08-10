@@ -26,3 +26,16 @@ def knapsack(items, W):
     i -= 1
   
   return res
+
+
+if __name__ == "__main__":
+  weights = [10, 20, 30]
+  values = [60, 100, 120]
+  W = 50
+  items = []
+  for w, v in zip(weights, values):
+    items.append(Item(w, v))
+  print("所有的商品为：{}".format(items))
+  print("背包的容量为：{}".format(W))
+  print("结果为：")
+  print(knapsack(items, W))

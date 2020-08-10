@@ -34,3 +34,14 @@ def calc_s(activities, i, j):
     if activities[k].s >= activities[i].f and activities[k].f <= activities[j].s:
       res.append(k)
   return res
+
+
+if __name__ == "__main__":
+  s = [1, 3, 0, 5, 3, 5, 6, 8, 8, 2, 12]
+  f = [4, 5, 6, 7, 9, 9, 10, 11, 12, 14, 16]
+  activities = []
+  for s, f in zip(s, f):
+    activities.append(Activity(s, f))
+  print("所有的活动为： {}".format(activities))
+  print("最大的兼容活动集为：{}".format(dp_activity_selector(activities)))
+  
